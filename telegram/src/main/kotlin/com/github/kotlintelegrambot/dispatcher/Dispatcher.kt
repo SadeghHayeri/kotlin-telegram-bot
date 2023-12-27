@@ -2,6 +2,7 @@ package com.github.kotlintelegrambot.dispatcher
 
 import com.github.kotlintelegrambot.Bot
 import com.github.kotlintelegrambot.dispatcher.handlers.ErrorHandler
+import com.github.kotlintelegrambot.dispatcher.handlers.GlobalErrorHandler
 import com.github.kotlintelegrambot.dispatcher.handlers.Handler
 import com.github.kotlintelegrambot.entities.Update
 import com.github.kotlintelegrambot.errors.TelegramError
@@ -24,6 +25,7 @@ class Dispatcher internal constructor(
 
     private val commandHandlers = linkedSetOf<Handler>()
     private val errorHandlers = arrayListOf<ErrorHandler>()
+    private val globalErrorHandlers = arrayListOf<GlobalErrorHandler>()
 
     private val scope: CoroutineScope = CoroutineScope(coroutineDispatcher)
 
@@ -57,6 +59,10 @@ class Dispatcher internal constructor(
         errorHandlers.add(errorHandler)
     }
 
+    fun addGlobalErrorHAndler(errorHandler: GlobalErrorHandler) {
+        globalErrorHandlers.add(errorHandler)
+    }
+
     fun removeErrorHandler(errorHandler: ErrorHandler) {
         errorHandlers.remove(errorHandler)
     }
@@ -70,11 +76,24 @@ class Dispatcher internal constructor(
                 try {
                     it.handleUpdate(bot, update)
                 } catch (throwable: Throwable) {
+                    handleGlobalError(update, throwable)
                     if (logLevel.shouldLogErrors()) {
                         throwable.printStackTrace()
                     }
                 }
             }
+    }
+
+    private fun handleGlobalError(update: Update, error: Throwable) {
+        globalErrorHandlers.forEach { globalErrorHAndler ->
+            try {
+                globalErrorHAndler(bot, update, error)
+            } catch (throwable: Throwable) {
+                if (logLevel.shouldLogErrors()) {
+                    throwable.printStackTrace()
+                }
+            }
+        }
     }
 
     private fun handleError(error: TelegramError) {

@@ -11,6 +11,7 @@ import com.github.kotlintelegrambot.entities.files.VideoNote
 import com.github.kotlintelegrambot.entities.files.Voice
 import com.github.kotlintelegrambot.entities.stickers.Sticker
 
+typealias HandleGlobalError = GlobalErrorHandlerEnvironment.() -> Unit
 typealias HandleError = ErrorHandlerEnvironment.() -> Unit
 typealias HandleMessage = suspend MessageHandlerEnvironment.() -> Unit
 typealias HandleCommand = suspend CommandHandlerEnvironment.() -> Unit

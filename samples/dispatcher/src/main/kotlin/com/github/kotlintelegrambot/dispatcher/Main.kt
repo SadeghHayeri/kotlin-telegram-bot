@@ -218,12 +218,20 @@ fun main() {
                 bot.sendDice(ChatId.fromId(message.chat.id), DiceEmoji.Dartboard)
             }
 
+            command("error") {
+                throw Exception("Test Exception")
+            }
+
             dice {
                 bot.sendMessage(ChatId.fromId(message.chat.id), "A dice ${dice.emoji.emojiValue} with value ${dice.value} has been received!")
             }
 
             telegramError {
                 println(error.getErrorMessage())
+            }
+
+            globalError {
+                update.message?.from?.id?.let { bot.sendMessage(ChatId.fromId(it), "error ${error.message}") }
             }
         }
     }

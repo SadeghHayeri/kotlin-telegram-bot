@@ -7,6 +7,8 @@ import com.github.kotlintelegrambot.dispatcher.handlers.CommandHandler
 import com.github.kotlintelegrambot.dispatcher.handlers.ContactHandler
 import com.github.kotlintelegrambot.dispatcher.handlers.DiceHandler
 import com.github.kotlintelegrambot.dispatcher.handlers.ErrorHandler
+import com.github.kotlintelegrambot.dispatcher.handlers.GlobalErrorHandler
+import com.github.kotlintelegrambot.dispatcher.handlers.HandleGlobalError
 import com.github.kotlintelegrambot.dispatcher.handlers.ExtendedHandler
 import com.github.kotlintelegrambot.dispatcher.handlers.HandleAnimation
 import com.github.kotlintelegrambot.dispatcher.handlers.HandleAudio
@@ -114,6 +116,10 @@ fun Dispatcher.location(handleLocation: HandleLocation) {
 
 fun Dispatcher.telegramError(handleError: HandleError) {
     addErrorHandler(ErrorHandler(handleError))
+}
+
+fun Dispatcher.globalError(handleGlobalError: HandleGlobalError) {
+    addGlobalErrorHAndler(GlobalErrorHandler(handleGlobalError))
 }
 
 fun Dispatcher.preCheckoutQuery(body: HandlePreCheckoutQuery) {
