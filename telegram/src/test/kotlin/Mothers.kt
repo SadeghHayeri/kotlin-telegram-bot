@@ -160,7 +160,7 @@ fun anyChat(
     photo: ChatPhoto? = null,
     description: String? = null,
     inviteLink: String? = null,
-    pinnedMessage: String? = null,
+//    pinnedMessage: String? = null,
     stickerSetName: String? = null,
     canSetStickerSet: Boolean? = null,
 ): Chat = Chat(
@@ -173,7 +173,7 @@ fun anyChat(
     photo = photo,
     description = description,
     inviteLink = inviteLink,
-    pinnedMessage = pinnedMessage,
+//    pinnedMessage = pinnedMessage,
     stickerSetName = stickerSetName,
     canSetStickerSet = canSetStickerSet,
 )
