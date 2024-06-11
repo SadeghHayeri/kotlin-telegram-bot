@@ -182,7 +182,7 @@ fun main() {
                         title = "$it. $queryText",
                         inputMessageContent = InputMessageContent.Text(
                             messageText = "$it. $queryText",
-                            linkPreviewOption = LinkPreviewOption(
+                            linkPreviewOptions = LinkPreviewOptions(
                                 url = "https://t.me/swapwalletbot/app",
                                 showAboveText = true,
                                 preferLargeMedia = true,

@@ -2,7 +2,7 @@ package com.github.kotlintelegrambot.entities
 
 import com.google.gson.annotations.SerializedName
 
-data class LinkPreviewOption(
+data class LinkPreviewOptions(
     @SerializedName("is_disabled") val isDisabled: Boolean? = null,
     @SerializedName("url") val url: String? = null,
     @SerializedName("prefer_small_media") val preferSmallMedia: Boolean? = null,

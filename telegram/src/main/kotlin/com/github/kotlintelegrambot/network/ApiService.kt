@@ -1,18 +1,6 @@
 package com.github.kotlintelegrambot.network
 
-import com.github.kotlintelegrambot.entities.BotCommand
-import com.github.kotlintelegrambot.entities.Chat
-import com.github.kotlintelegrambot.entities.ChatAction
-import com.github.kotlintelegrambot.entities.ChatId
-import com.github.kotlintelegrambot.entities.ChatMember
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.MessageId
-import com.github.kotlintelegrambot.entities.ParseMode
-import com.github.kotlintelegrambot.entities.ReplyMarkup
-import com.github.kotlintelegrambot.entities.Update
-import com.github.kotlintelegrambot.entities.User
-import com.github.kotlintelegrambot.entities.UserProfilePhotos
-import com.github.kotlintelegrambot.entities.WebhookInfo
+import com.github.kotlintelegrambot.entities.*
 import com.github.kotlintelegrambot.entities.dice.DiceEmoji
 import com.github.kotlintelegrambot.entities.dice.DiceFields
 import com.github.kotlintelegrambot.entities.files.File
@@ -684,6 +672,7 @@ internal interface ApiService {
         @Field("text") text: String,
         @Field("parse_mode") parseMode: ParseMode?,
         @Field("disable_web_page_preview") disableWebPagePreview: Boolean?,
+        @Field("link_preview_options") linkPreviewOptions: LinkPreviewOptions?,
         @Field(ApiConstants.REPLY_MARKUP) replyMarkup: ReplyMarkup? = null,
     ): Call<Response<Message>>
 
