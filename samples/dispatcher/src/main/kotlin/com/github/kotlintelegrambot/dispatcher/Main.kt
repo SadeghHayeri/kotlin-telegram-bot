@@ -180,7 +180,14 @@ fun main() {
                     InlineQueryResult.Article(
                         id = it.toString(),
                         title = "$it. $queryText",
-                        inputMessageContent = InputMessageContent.Text("$it. $queryText"),
+                        inputMessageContent = InputMessageContent.Text(
+                            messageText = "$it. $queryText",
+                            linkPreviewOption = LinkPreviewOption(
+                                url = "https://t.me/swapwalletbot/app",
+                                showAboveText = true,
+                                preferLargeMedia = true,
+                            ),
+                        ),
                         description = "Add $it. before you word",
                     )
                 }
@@ -203,7 +210,7 @@ fun main() {
             chosenInlineResult {
                 bot.sendMessage(
                     ChatId.fromId(chosenInlineResult.from.id),
-                    "User select ${chosenInlineResult.resultId}"
+                    "User selected ${chosenInlineResult.resultId}"
                 )
             }
 

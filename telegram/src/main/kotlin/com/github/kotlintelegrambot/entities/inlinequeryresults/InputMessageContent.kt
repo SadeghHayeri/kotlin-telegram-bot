@@ -1,5 +1,6 @@
 package com.github.kotlintelegrambot.entities.inlinequeryresults
 
+import com.github.kotlintelegrambot.entities.LinkPreviewOption
 import com.github.kotlintelegrambot.entities.ParseMode
 import com.google.gson.annotations.SerializedName
 
@@ -8,6 +9,7 @@ sealed class InputMessageContent {
         @SerializedName("message_text") val messageText: String,
         @SerializedName("parse_mode") val parseMode: ParseMode? = null,
         @SerializedName("disable_web_page_preview") val disableWebPagePreview: Boolean? = null,
+        @SerializedName("link_preview_options") val linkPreviewOption: LinkPreviewOption? = null,
     ) : InputMessageContent()
 
     data class Location(
