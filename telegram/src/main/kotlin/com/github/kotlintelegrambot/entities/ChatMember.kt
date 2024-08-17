@@ -7,6 +7,7 @@ data class ChatMember(
     @SerializedName("status") val status: String,
     @SerializedName("custom_title") val customTitle: String? = null,
     @SerializedName("is_anonymous") val isAnonymous: Boolean? = null,
+    @SerializedName("is_premium") val isPremium: Boolean? = null,
     @SerializedName("until_date") val untilDate: Int? = null,
     @SerializedName("can_be_edited") val canBeEdited: Boolean? = null,
     @SerializedName("can_post_messages") val canPostMessages: Boolean? = null,
