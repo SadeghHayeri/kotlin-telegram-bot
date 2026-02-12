@@ -17,6 +17,8 @@ sealed class InlineKeyboardButton {
     data class Url(
         override val text: String,
         val url: String,
+        @SerializedName("icon_custom_emoji_id") val iconCustomEmojiId: String? = null,
+        @SerializedName("style") val style: String? = null,
     ) : InlineKeyboardButton()
 
     /**
@@ -25,6 +27,8 @@ sealed class InlineKeyboardButton {
     data class CallbackData(
         override val text: String,
         @SerializedName("callback_data") val callbackData: String,
+        @SerializedName("icon_custom_emoji_id") val iconCustomEmojiId: String? = null,
+        @SerializedName("style") val style: String? = null,
     ) : InlineKeyboardButton()
 
     /**
@@ -35,6 +39,8 @@ sealed class InlineKeyboardButton {
     data class SwitchInlineQuery(
         override val text: String,
         @SerializedName("switch_inline_query") val switchInlineQuery: String,
+        @SerializedName("icon_custom_emoji_id") val iconCustomEmojiId: String? = null,
+        @SerializedName("style") val style: String? = null,
     ) : InlineKeyboardButton()
 
     /**
@@ -45,6 +51,8 @@ sealed class InlineKeyboardButton {
     data class SwitchInlineQueryCurrentChat(
         override val text: String,
         @SerializedName("switch_inline_query_current_chat") val switchInlineQueryCurrentChat: String,
+        @SerializedName("icon_custom_emoji_id") val iconCustomEmojiId: String? = null,
+        @SerializedName("style") val style: String? = null,
     ) : InlineKeyboardButton()
 
     /**
@@ -54,13 +62,19 @@ sealed class InlineKeyboardButton {
     data class CallbackGameButtonType(
         override val text: String,
         @SerializedName("callback_game") val callbackGame: CallbackGame?,
+        @SerializedName("icon_custom_emoji_id") val iconCustomEmojiId: String? = null,
+        @SerializedName("style") val style: String? = null,
     ) : InlineKeyboardButton()
 
     /**
      * To send a pay button.
      * NOTE: this type of button must always be the first button in the first row.
      */
-    data class Pay(override val text: String) : InlineKeyboardButton() {
+    data class Pay(
+        override val text: String,
+        @SerializedName("icon_custom_emoji_id") val iconCustomEmojiId: String? = null,
+        @SerializedName("style") val style: String? = null,
+    ) : InlineKeyboardButton() {
         val pay = true
     }
 
@@ -70,5 +84,7 @@ sealed class InlineKeyboardButton {
     data class WebApp(
         override val text: String,
         @SerializedName("web_app") val webApp: WebAppInfo,
+        @SerializedName("icon_custom_emoji_id") val iconCustomEmojiId: String? = null,
+        @SerializedName("style") val style: String? = null,
     ) : InlineKeyboardButton()
 }
