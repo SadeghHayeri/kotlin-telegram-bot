@@ -1006,6 +1006,7 @@ internal class ApiClient(
         text: String,
         parseMode: ParseMode?,
         disableWebPagePreview: Boolean?,
+        linkPreviewOptions: LinkPreviewOptions? = null,
         replyMarkup: ReplyMarkup?,
     ): Call<Response<Message>> {
         return service.editMessageText(
@@ -1015,6 +1016,7 @@ internal class ApiClient(
             text,
             parseMode,
             disableWebPagePreview,
+            linkPreviewOptions,
             replyMarkup,
         )
     }

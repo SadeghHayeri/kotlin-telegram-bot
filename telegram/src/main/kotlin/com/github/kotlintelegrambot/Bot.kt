@@ -1,20 +1,7 @@
 package com.github.kotlintelegrambot
 
 import com.github.kotlintelegrambot.dispatcher.Dispatcher
-import com.github.kotlintelegrambot.entities.BotCommand
-import com.github.kotlintelegrambot.entities.Chat
-import com.github.kotlintelegrambot.entities.ChatAction
-import com.github.kotlintelegrambot.entities.ChatId
-import com.github.kotlintelegrambot.entities.ChatMember
-import com.github.kotlintelegrambot.entities.ChatPermissions
-import com.github.kotlintelegrambot.entities.InlineKeyboardMarkup
-import com.github.kotlintelegrambot.entities.Message
-import com.github.kotlintelegrambot.entities.MessageEntity
-import com.github.kotlintelegrambot.entities.ParseMode
-import com.github.kotlintelegrambot.entities.ReplyMarkup
-import com.github.kotlintelegrambot.entities.TelegramFile
-import com.github.kotlintelegrambot.entities.Update
-import com.github.kotlintelegrambot.entities.User
+import com.github.kotlintelegrambot.entities.*
 import com.github.kotlintelegrambot.entities.dice.DiceEmoji
 import com.github.kotlintelegrambot.entities.inlinequeryresults.InlineQueryResult
 import com.github.kotlintelegrambot.entities.inputmedia.InputMedia
@@ -26,7 +13,6 @@ import com.github.kotlintelegrambot.entities.polls.PollType
 import com.github.kotlintelegrambot.entities.stickers.MaskPosition
 import com.github.kotlintelegrambot.logging.LogLevel
 import com.github.kotlintelegrambot.network.ApiClient
-import com.github.kotlintelegrambot.entities.InlineQueryResultsButton
 import com.github.kotlintelegrambot.network.bimap
 import com.github.kotlintelegrambot.network.call
 import com.github.kotlintelegrambot.network.serialization.GsonFactory
@@ -1551,6 +1537,7 @@ class Bot private constructor(
         text: String,
         parseMode: ParseMode? = null,
         disableWebPagePreview: Boolean? = null,
+        linkPreviewOptions: LinkPreviewOptions? = null,
         replyMarkup: ReplyMarkup? = null,
     ) = apiClient.editMessageText(
         chatId,
@@ -1559,6 +1546,7 @@ class Bot private constructor(
         text,
         parseMode,
         disableWebPagePreview,
+        linkPreviewOptions,
         replyMarkup,
     ).call()
 
