@@ -12,6 +12,6 @@ import com.google.gson.annotations.SerializedName
 data class File(
     @SerializedName(FilesFields.fileId) val fileId: String,
     @SerializedName(FilesFields.fileUniqueId) val fileUniqueId: String,
-    @SerializedName(FilesFields.fileSize) val fileSize: Int? = null,
+    @SerializedName(FilesFields.fileSize) val fileSize: Long? = null,
     @SerializedName(FilesFields.filePath) val filePath: String? = null,
 )
